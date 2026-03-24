@@ -70,4 +70,81 @@
 ### 第五阶段：配置 Telegram 机器人
 
 1. 打开 Telegram，搜索 `@BotFather`，发送 `/newbot`，按提示创建机器人并保存 **Bot Token**
-2. 设置 Webhook（在浏览器直接访问下面地址，替换对应内容）：
+2. 设置 Webhook（在浏览器直接访问下面地址，替换对应内容）：https://api.telegram.org/bot【你的Token】/setWebhook?url=https://domain-manager.【你的账号名】.workers.dev/api/telegram/webhook
+看到 `{"ok":true}` 即设置成功。
+
+3. 获取 **Chat ID**：  
+对你的机器人发送 `/start`，机器人会自动回复你的 Chat ID，保存备用。
+
+---
+
+## 🖥️ 管理后台使用
+
+Worker 部署完成后，访问地址为：https://domain-manager.你的账号名.workers.dev
+1. 用设置的 `ADMIN_PASSWORD` 登录管理后台
+2. 点击顶部 **设置** 页面
+3. 填入 **Bot Token** 和 **Chat ID** → 保存
+4. 在管理后台可手动点击 **🔔 检查续约** 进行测试
+
+---
+
+## 🔑 获取 Cloudflare API Token（用于同步域名）
+
+1. 登录 Cloudflare → 右上角头像 → **My Profile**
+2. 左侧点击 **API Tokens** → **Create Token**
+3. 选择模板 **Read All Resources**（只读权限，更安全）
+4. 点击 **Continue to summary** → **Create Token**
+5. 立即复制生成的 Token（只显示一次）
+
+**在管理后台同步域名**：
+- 登录后台 → 点击顶部 **账号** → **+ 添加 CF 账号**
+- 粘贴刚才的 Token → 点击 **验证并添加**
+- 验证成功后，点击账号卡片上的 **↻ 同步域名**
+- 系统会列出所有域名及到期日期，确认后点击同步即可
+
+---
+1. 用设置的 `ADMIN_PASSWORD` 登录管理后台
+2. 点击顶部 **设置** 页面
+3. 填入 **Bot Token** 和 **Chat ID** → 保存
+4. 在管理后台可手动点击 **🔔 检查续约** 进行测试
+
+---
+
+## 🔑 获取 Cloudflare API Token（用于同步域名）
+
+1. 登录 Cloudflare → 右上角头像 → **My Profile**
+2. 左侧点击 **API Tokens** → **Create Token**
+3. 选择模板 **Read All Resources**（只读权限，更安全）
+4. 点击 **Continue to summary** → **Create Token**
+5. 立即复制生成的 Token（只显示一次）
+
+**在管理后台同步域名**：
+- 登录后台 → 点击顶部 **账号** → **+ 添加 CF 账号**
+- 粘贴刚才的 Token → 点击 **验证并添加**
+- 验证成功后，点击账号卡片上的 **↻ 同步域名**
+- 系统会列出所有域名及到期日期，确认后点击同步即可
+
+---
+
+## 📊 快速参考表
+
+| 项目                  | 内容说明                                      |
+|-----------------------|-----------------------------------------------|
+| Worker 名称           | `domain-manager`                              |
+| KV Namespace          | `DOMAIN_MANAGER_KV`                           |
+| 管理员密码变量        | `ADMIN_PASSWORD`                              |
+| Cron 触发时间         | `0 9 * * *`（北京时间 17:00）                 |
+| 管理后台地址          | `https://domain-manager.你的账号名.workers.dev` |
+| Webhook 示例          | `/api/telegram/webhook`                       |
+
+---
+
+**Made with ❤️**  
+欢迎 Star、Fork 或提交 Issue 一起改进！
+
+
+
+
+
+
+
